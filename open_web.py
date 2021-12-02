@@ -36,6 +36,7 @@ def input_text(Location_type,Xpath_value,text):
     web_text.send_keys(text)
     time.sleep(1)
 
+'''定位+点击'''
 def click_button(Location_type,Xpath_value):
     web.find_element(by=Location_type,value=Xpath_value).click()
     time.sleep(3)
