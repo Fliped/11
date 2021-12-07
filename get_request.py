@@ -1,3 +1,4 @@
+#coding=UTF-8
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.android.webdriver import WebDriver
@@ -19,6 +20,7 @@ request_sumbit_button_Xpath='//*[@id="getRequest_getRequest_cards"]/md-card/form
 result_Xpath='//*[@id="nr-dashboard"]/md-toast/div/div/h4'
 result_Xpath_01='//*[@id="nr-dashboard"]/md-toast/div/div/h4/text()'
 
+data_traffic_xpath='//*[@id="ui_table-18467"]/div[2]/div/div[1]/div[4]/text()'
 
 
 
@@ -55,16 +57,14 @@ click_button(By.XPATH,request_sumbit_button_Xpath)
 #             element = WebDriverWait(driver, 10).until(lambda x: x.find_element_by_id("someId")) \n
 #             is_disappeared = WebDriverWait(driver, 30, 1, (ElementNotVisibleException)).\ \n
 #                         until_not(lambda x: x.find_element_by_id("someId").is_displayed())
-#element=web.find_element_by_xpath(result_Xpath)
-is_appeared=WebDriverWait(web,300,1,(ElementNotVisibleException)).until_not(lambda web:web.find_element_by_xpath(result_Xpath).is_displayed())
-#is_appeared=WebDriverWait(web,300,1).until(lambda web: web.find_element_by_xpath(result_Xpath).is_displayed())
-print(is_appeared)
-if is_appeared:
-    #element1=web.find_element_by_xpath(result_Xpath)
-    print("is_appeared")
-    #print(element1)
-else:
-    print("wu")
+# element=WebDriverWait(web,60).until(lambda web: web.find_element_by_xpath(result_Xpath))
+# #element=WebDriverWait(web,60).until(By.TAG_NAME("h4"))
+# # # is_appeared=WebDriverWait(web,30,0.5,(ElementNotVisibleException)).until_not(lambda web:web.find_element_by_xpath(result_Xpath).is_displayed())
+
+# print("这是result ",element)
+# ele=web.find_elements_by_css_selector ("h4")
+# print(ele)
+
 
 
 
