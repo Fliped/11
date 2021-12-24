@@ -44,12 +44,12 @@ def click_button(Location_type,Xpath_value):
     time.sleep(3)
 
 
-    
-open_web(url_rpma_getrequest)
-input_text(By.XPATH,Node_id_Xpath,Node_id)
-input_text(By.XPATH,cor_id_Xpath,cor_id)
-input_text(By.XPATH,object_id_Xpath,object_id)
-click_button(By.XPATH,request_sumbit_button_Xpath)
+if __name__=='__main__':   
+    open_web(url_rpma_getrequest)
+    input_text(By.XPATH,Node_id_Xpath,Node_id)
+    input_text(By.XPATH,cor_id_Xpath,cor_id)
+    input_text(By.XPATH,object_id_Xpath,object_id)
+    click_button(By.XPATH,request_sumbit_button_Xpath)
 
 '''获取结果'''
 #  Example:
