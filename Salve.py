@@ -1,5 +1,3 @@
-
-import imp
 import sys
 import time
 import logging
@@ -10,6 +8,7 @@ import modbus_tk.modbus_tcp as modbus_tcp
 import random
 import xlwt
 import xlrd
+import socket
 
 def main():
     LOGGER=modbus_tk.utils.create_logger(name="console",record_format="%(message)s")
@@ -19,11 +18,14 @@ def main():
         LOGGER.info("running...")
         LOGGER.info("enter'quit'for closing the server") 
         SERVER.start()
+        sk=socket.socket()
+        sk.connect("0.0.0.0",502)
+
      # creat slave
-        SLAVE1=SERVER.add_slave(1)
-        SLAVE1.add_block('A',cst.HOLDING_REGISTERS,0,2000) 
-        #获取excel的数据   设置在寄存器 
-        SLAVE1.set_values('A',0,getdata())
+        # SLAVE1=SERVER.add_slave(1)
+        # SLAVE1.add_block('A',cst.HOLDING_REGISTERS,0,2000) 
+        # #获取excel的数据   设置在寄存器 
+        # SLAVE1.set_values('A',0,getdata())
        
 
         while True:
@@ -50,13 +52,14 @@ def getdata():
     #数据转换 十六进制转化成十进制
     cut_data_10=(int(cut_data,16))
     print(cut_data_10)
-    #获取excel数据 59320748
+    #获取excel数据 59 32 07 48
     data_01=table.cell(1,2).value
     print(data_01)
-    data_01_change= ['%02X' % i for i in int(data_01)] #bytes().fromhex(int(data_01)) python 3.0
-
+    #data_01_change= bytes().fromhex(int(data_01)) # python 3.0
+    # for i in data_01:
+    #     print("0x"+i)
     
-    print(data_01_change)
+    # print(data_01_change)
     
     return cut_data
 
