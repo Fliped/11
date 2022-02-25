@@ -41,15 +41,23 @@ def main():
 def getdata():
     xl=xlrd.open_workbook(r'Master_values.xlsx')
     table=xl.sheets()[0]
+    #获取excel数据 TX count:0x3726
     data=table.cell(1,1).value
     print(data)
-    #数据切片 TX count:0X3726==>0X3726
+    #数据切片 TX count:0x3726==>0x3726
     cut_data=data[9:]
     print(cut_data)
     #数据转换 十六进制转化成十进制
-    cut_data_10=str(int(hex(cut_data).upper(),16))
-    
+    cut_data_10=(int(cut_data,16))
     print(cut_data_10)
+    #获取excel数据 59320748
+    data_01=table.cell(1,2).value
+    print(data_01)
+    data_01_change= ['%02X' % i for i in int(data_01)] #bytes().fromhex(int(data_01)) python 3.0
+
+    
+    print(data_01_change)
+    
     return cut_data
 
 if __name__=="__main__":
